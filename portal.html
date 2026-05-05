@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aleandri Creative | Client Portal</title>
+  <style>
+    :root {
+      --bg: #09090b;
+      --bg-2: #111114;
+      --panel: rgba(22, 22, 27, 0.94);
+      --panel-2: rgba(29, 29, 36, 0.96);
+      --panel-3: rgba(37, 37, 45, 0.92);
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.15);
+      --text: #f3f0e9;
+      --muted: #b9b1a4;
+      --gold: #c49b68;
+      --gold-deep: #9f7441;
+      --gold-soft: rgba(196,155,104,0.16);
+      --danger: #cf6b6b;
+      --success: #72c38f;
+      --review: #7ab1f0;
+      --revise: #f0aa6c;
+      --shadow: 0 32px 80px rgba(0,0,0,0.42);
+      --shadow-soft: 0 18px 36px rgba(0,0,0,0.24);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(196,155,104,0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(122,177,240,0.08), transparent 26%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+    body.modal-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    img { display: block; max-width: 100%; }
+    .shell { width: min(1540px, 95vw); margin: 0 auto; padding: 36px 0 88px; }
+    .topbar, .app-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .topbar { margin-bottom: 32px; }
+    .brand-lockup h1 {
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.2rem, 4vw, 3.25rem);
+      letter-spacing: -0.03em;
+    }
+    .brand-lockup p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      max-width: 920px;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+    .primary-btn, .secondary-btn, .danger-btn, .ghost-btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      cursor: pointer;
+      transition: transform .22s ease, opacity .22s ease, background .22s ease, box-shadow .22s ease, border-color .22s ease;
+      font-weight: 600;
+    }
+    .primary-btn:hover, .secondary-btn:hover, .danger-btn:hover, .ghost-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+    }
+    .primary-btn {
+      background: linear-gradient(135deg, #d6b07f, var(--gold));
+      color: #111;
+      font-weight: 700;
+    }
+    .secondary-btn, .ghost-btn {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+    }
+    .danger-btn {
+      background: rgba(207,107,107,0.14);
+      color: #ffd4d4;
+      border: 1px solid rgba(207,107,107,0.18);
+    }
+    .ghost-btn {
+      padding: 10px 14px;
+      font-size: .88rem;
+    }
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), transparent 16%), var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+    .login-wrap { display: grid; grid-template-columns: 1.08fr .92fr; gap: 24px; }
+    .hero-panel {
+      padding: 38px;
+      min-height: 560px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(196,155,104,0.14), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,0.03), transparent 18%),
+        var(--panel);
+    }
+    .hero-panel::after {
+      content: '';
+      position: absolute;
+      right: -60px;
+      bottom: -80px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,155,104,0.20), transparent 68%);
+      pointer-events: none;
+      filter: blur(8px);
+    }
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border: 1px solid rgba(196,155,104,0.3);
+      border-radius: 999px;
+      color: var(--gold);
+      font-size: .82rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      background: rgba(196,155,104,0.06);
+    }
+    .hero-panel h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.2rem, 3vw, 3.6rem);
+      line-height: 1.04;
+      margin: 22px 0 16px;
+      max-width: 760px;
+      letter-spacing: -0.03em;
+    }
+    .hero-panel p {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 760px;
+      font-size: 1rem;
+    }
+    .feature-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; margin-top: 30px; }
+    .feature-card {
+      padding: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      transition: transform .22s ease, border-color .22s ease, background .22s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(196,155,104,0.24);
+      background: rgba(255,255,255,0.045);
+    }
+    .feature-card h3 { margin: 0 0 8px; font-size: 1rem; letter-spacing: -.01em; }
+    .feature-card p { margin: 0; font-size: .95rem; }
+    .auth-panel { padding: 30px; }
+    .auth-tabs { display: inline-flex; background: rgba(255,255,255,0.04); border-radius: 999px; padding: 4px; margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.06); }
+    .tab-btn { border: 0; border-radius: 999px; background: transparent; color: var(--muted); padding: 10px 16px; cursor: pointer; }
+    .tab-btn.active { background: var(--gold); color: #111; font-weight: 700; }
+    .auth-card {
+      padding: 24px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), transparent 18%), var(--panel-2);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .auth-card h3 { margin-top: 0; font-family: Georgia, serif; font-size: 1.5rem; }
+    .field { display: grid; gap: 8px; margin: 14px 0; }
+    .field label { color: var(--muted); font-size: .92rem; }
+    .field input, .field textarea, .field select {
+      width: 100%;
+      background: rgba(255,255,255,0.045);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 14px 16px;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus,
+    .look-card textarea:focus, .look-card select:focus, .asset-notes:focus, .project-notes:focus {
+      outline: none;
+      border-color: rgba(196,155,104,0.6);
+      box-shadow: 0 0 0 3px rgba(196,155,104,0.12);
+      background: rgba(255,255,255,0.06);
+    }
+    .field textarea { min-height: 110px; resize: vertical; }
+    .hint { color: var(--muted); font-size: .9rem; line-height: 1.5; }
+    .status { margin-top: 12px; min-height: 20px; font-size: .95rem; }
+    .status.error { color: var(--danger); }
+    .status.success { color: var(--success); }
+    .portal-shell { display: none; }
+    .portal-shell.active { display: block; }
+    .app-header {
+      margin-bottom: 26px;
+      padding: 22px 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), transparent 22%), rgba(20,20,25,0.9);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(16px);
+    }
+    .app-header-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: .84rem;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .admin-badge {
+      color: #111;
+      background: linear-gradient(135deg, #d6b07f, var(--gold));
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 8px 12px;
+      box-shadow: 0 12px 24px rgba(196,155,104,0.18);
+    }
+    .brand-nav { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 14px; margin-bottom: 22px; }
+    .brand-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent 18%), rgba(23,23,28,0.95);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      cursor: pointer;
+      text-align: left;
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-card::after {
+      content: '';
+      position: absolute;
+      inset: auto -30% -60% auto;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,155,104,0.18), transparent 68%);
+      pointer-events: none;
+    }
+    .brand-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(196,155,104,0.28);
+      box-shadow: var(--shadow-soft);
+    }
+    .brand-card.active {
+      border-color: rgba(196,155,104,0.62);
+      box-shadow: inset 0 0 0 1px rgba(196,155,104,0.24), 0 18px 32px rgba(0,0,0,0.26);
+      background: linear-gradient(180deg, rgba(196,155,104,0.08), transparent 20%), rgba(23,23,28,0.98);
+    }
+    .brand-card h3 { margin: 10px 0 8px; font-size: 1.12rem; letter-spacing: -.02em; }
+    .brand-card p { color: var(--muted); margin: 0; font-size: .92rem; line-height: 1.55; }
+    .workspace-grid { display: grid; grid-template-columns: 440px 1fr; gap: 22px; align-items: start; }
+    .section-block {
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), transparent 16%), rgba(21,21,26,0.96);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 26px;
+      box-shadow: var(--shadow-soft);
+    }
+    .section-header { display: flex; justify-content: space-between; align-items: start; gap: 14px; margin-bottom: 20px; }
+    .section-header h3 {
+      margin: 0 0 6px;
+      font-family: Georgia, serif;
+      font-size: 1.5rem;
+      letter-spacing: -.02em;
+    }
+    .section-header p { margin: 0; color: var(--muted); line-height: 1.6; }
+    .pool-section { margin-bottom: 20px; }
+    .pool-section:last-child { margin-bottom: 0; }
+    .pool-section h4 {
+      margin: 0 0 12px;
+      font-size: .9rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--muted);
+    }
+    .asset-grid { display: grid; gap: 14px; }
+    .asset-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent 18%), rgba(255,255,255,0.018);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+    .asset-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(196,155,104,0.26);
+      box-shadow: var(--shadow-soft);
+    }
+    .asset-card.dragging { opacity: .45; transform: scale(.99); }
+    .asset-preview {
+      aspect-ratio: 4 / 3;
+      background: #111;
+      cursor: zoom-in;
+      position: relative;
+      overflow: hidden;
+    }
+    .asset-preview::after {
+      content: 'Preview';
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(0,0,0,0.45);
+      padding: 6px 8px;
+      border-radius: 999px;
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+    .asset-card:hover .asset-preview::after,
+    .slot-asset:hover .slot-asset-image::after,
+    .sequence-cell:hover .sequence-image-wrap::after { opacity: 1; }
+    .asset-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .28s ease;
+    }
+    .asset-card:hover .asset-preview img { transform: scale(1.02); }
+    .asset-body { padding: 14px; display: grid; gap: 10px; }
+    .asset-title { font-weight: 700; letter-spacing: -.01em; }
+    .asset-meta { font-size: .82rem; color: var(--muted); }
+    .asset-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .asset-notes {
+      width: 100%;
+      min-height: 76px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      padding: 12px;
+      resize: vertical;
+    }
+    .look-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .look-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    .look-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent 16%), rgba(255,255,255,0.02);
+      padding: 20px;
+      display: grid;
+      gap: 14px;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .look-card::before {
+      content: '';
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,0.08);
+    }
+    .look-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+    .look-card.status-draft::before { background: rgba(255,255,255,0.10); }
+    .look-card.status-under-review { border-color: rgba(122,177,240,0.24); }
+    .look-card.status-under-review::before { background: var(--review); }
+    .look-card.status-approved { border-color: rgba(114,195,143,0.24); }
+    .look-card.status-approved::before { background: var(--success); }
+    .look-card.status-revise { border-color: rgba(240,170,108,0.24); }
+    .look-card.status-revise::before { background: var(--revise); }
+    .look-card-header { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+    .look-card h4 {
+      margin: 0;
+      font-size: 1.28rem;
+      letter-spacing: -.02em;
+      font-family: Georgia, serif;
+    }
+    .look-slots { display: grid; gap: 12px; }
+    .look-slot {
+      border: 1px dashed rgba(255,255,255,0.14);
+      border-radius: 18px;
+      padding: 12px;
+      background: rgba(255,255,255,0.02);
+      transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .look-slot.drag-over {
+      border-color: rgba(196,155,104,0.85);
+      background: rgba(196,155,104,0.10);
+      box-shadow: inset 0 0 0 1px rgba(196,155,104,0.16);
+    }
+    .look-slot-head { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 8px; align-items: center; }
+    .slot-label {
+      color: var(--muted);
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    .slot-empty { color: var(--muted); font-size: .92rem; line-height: 1.5; }
+    .slot-asset { display: grid; gap: 8px; }
+    .slot-asset-image,
+    .sequence-image-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+    .slot-asset-image::after,
+    .sequence-image-wrap::after {
+      content: 'Preview';
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      font-size: .7rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(0,0,0,0.45);
+      padding: 6px 8px;
+      border-radius: 999px;
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+    .slot-asset img {
+      width: 100%;
+      max-height: 190px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform .28s ease;
+    }
+    .slot-asset:hover img,
+    .sequence-cell:hover .sequence-thumb { transform: scale(1.02); }
+    .look-card textarea, .look-card select {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.045);
+      color: var(--text);
+      padding: 12px;
+    }
+    .sequence-row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+    .sequence-cell {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+      min-height: 128px;
+      transition: border-color .2s ease, background .2s ease, transform .2s ease;
+    }
+    .sequence-cell:hover {
+      transform: translateY(-1px);
+      border-color: rgba(196,155,104,0.24);
+    }
+    .sequence-cell.drag-over {
+      border-color: rgba(196,155,104,0.85);
+      background: rgba(196,155,104,0.10);
+    }
+    .sequence-label {
+      color: var(--muted);
+      font-size: .76rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+    .sequence-thumb {
+      width: 100%;
+      max-height: 88px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: zoom-in;
+      transition: transform .28s ease;
+    }
+    .sequence-empty { color: var(--muted); font-size: .85rem; line-height: 1.5; }
+    .empty-state {
+      padding: 28px;
+      border: 1px dashed rgba(255,255,255,0.16);
+      border-radius: 18px;
+      color: var(--muted);
+      text-align: center;
+      background: rgba(255,255,255,0.02);
+    }
+    .upload-panel {
+      display: none;
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .upload-panel.active { display: block; }
+    .planner-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 18px;
+      background: rgba(255,255,255,0.025);
+      margin-top: 16px;
+    }
+    .planner-card h4 {
+      margin: 0 0 8px;
+      font-family: Georgia, serif;
+      font-size: 1.15rem;
+    }
+    .example-list { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.75; }
+    .project-notes {
+      width: 100%;
+      min-height: 160px;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.045);
+      color: var(--text);
+    }
+    .footer-note { margin-top: 18px; color: var(--muted); font-size: .88rem; line-height: 1.7; }
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 24px;
+    }
+    .modal.active { display: flex; }
+    .modal-card {
+      width: min(1140px, 94vw);
+      max-height: 92vh;
+      overflow: auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent 18%), var(--panel-2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+    .modal-head {
+      display:flex;
+      justify-content:space-between;
+      align-items:start;
+      gap:16px;
+      padding:22px 24px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: sticky;
+      top: 0;
+      background: rgba(29,29,36,0.92);
+      backdrop-filter: blur(14px);
+    }
+    .modal-head h3 {
+      margin:0 0 6px;
+      font-family: Georgia, serif;
+      font-size: 1.6rem;
+      letter-spacing: -.02em;
+    }
+    .modal-body { padding: 0 24px 24px; }
+    .modal-image-wrap {
+      background:#111;
+      border-radius:22px;
+      overflow:hidden;
+      margin-top: 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .modal-image-wrap img { width:100%; height:auto; display:block; }
+    @media print {
+      body { background: #fff; color: #000; }
+      #loginView, .topbar > a, #logoutBtn, #adminBadge, .brand-nav, .upload-panel, .asset-actions, .danger-btn, .ghost-btn, .look-card select, #addLookBtn, #printBrandBtn, .modal { display: none !important; }
+      .shell { width: 100%; padding: 0; }
+      .topbar { margin-bottom: 14px; }
+      .workspace-grid { display: block; }
+      .section-block {
+        border: 0;
+        box-shadow: none;
+        background: #fff;
+        padding: 0;
+      }
+      .look-grid { grid-template-columns: 1fr; gap: 18px; }
+      .look-card, .planner-card, .app-header {
+        break-inside: avoid;
+        border: 1px solid #ccc;
+        background: #fff;
+        color: #000;
+        box-shadow: none;
+      }
+      textarea, .look-card select {
+        border: 1px solid #ccc !important;
+        background: #fff !important;
+        color: #000 !important;
+      }
+      .hint, .asset-meta, .brand-lockup p, .section-header p, .footer-note, .slot-label, .sequence-label, .pill { color: #444 !important; }
+    }
+    @media (max-width: 1250px) {
+      .workspace-grid { grid-template-columns: 1fr; }
+      .look-grid { grid-template-columns: 1fr; }
+      .brand-nav { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .sequence-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 900px) {
+      .login-wrap { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      .brand-nav, .feature-grid { grid-template-columns: 1fr; }
+      .topbar, .app-header, .look-toolbar { flex-direction: column; align-items: start; }
+      .shell { width: min(96vw, 100%); }
+      .hero-panel, .auth-panel, .section-block, .app-header { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <div class="brand-lockup">
+        <h1>Aleandri Creative Client Portal</h1>
+        <p>Private creative project workspace for outfit planning, locations, model references, and client notations across Ecko, Ecko Red, Rocawear, Material Girl, and Zoo York.</p>
+      </div>
+      <a class="secondary-btn" href="index.html">Back to main site</a>
+    </div>
+
+    <section id="loginView" class="login-wrap">
+      <div class="panel hero-panel">
+        <span class="eyebrow">Private Client Workspace</span>
+        <h2>Build each brand from pooled assets into a presentation-grade look system.</h2>
+        <p>The portal now supports a stronger creative workflow: upload outfit, location, and model references into pools, then assign them into Look 1, Look 2, Look 3 and beyond with client notes, feedback, status tracking, and presentation ordering.</p>
+        <div class="feature-grid">
+          <div class="feature-card"><h3>Asset pools by brand</h3><p>Separate outfit, location, and model libraries for each brand.</p></div>
+          <div class="feature-card"><h3>Look-board assembly</h3><p>Each look combines one outfit, one location, and one model with notes and review status.</p></div>
+          <div class="feature-card"><h3>Drag / drop + click assign</h3><p>Use either direct assignment buttons or drag assets into look slots.</p></div>
+          <div class="feature-card"><h3>Print-ready boards</h3><p>Per-brand export/print support for client review and production handoff.</p></div>
+        </div>
+      </div>
+      <div class="panel auth-panel">
+        <div class="auth-tabs">
+          <button class="tab-btn active" data-auth-mode="client">Client access</button>
+          <button class="tab-btn" data-auth-mode="admin">Admin access</button>
+        </div>
+        <div class="auth-card">
+          <h3 id="authTitle">Enter client password</h3>
+          <p class="hint" id="authHint">Simple password-only entry for brand/client review. No username required.</p>
+          <form id="loginForm">
+            <div class="field">
+              <label for="passwordInput">Password</label>
+              <input id="passwordInput" type="password" autocomplete="current-password" required>
+            </div>
+            <button class="primary-btn" type="submit">Enter portal</button>
+            <div id="loginStatus" class="status"></div>
+          </form>
+          <p class="footer-note">Important: this remains a static-site build. Passwords and uploaded assets are local to the current browser until a real backend is added.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="portalView" class="portal-shell">
+      <div class="app-header">
+        <div>
+          <div class="pill" id="sessionBadge">Client session</div>
+          <h2 id="brandHeading" style="font-family:Georgia,serif;margin:14px 0 6px; font-size:2rem;"></h2>
+          <p id="brandTagline" style="margin:0;color:var(--muted);"></p>
+        </div>
+        <div class="app-header-actions">
+          <button id="printBrandBtn" class="secondary-btn" type="button">Print / Export Brand</button>
+          <span id="adminBadge" class="admin-badge" style="display:none;">Admin mode</span>
+          <button id="logoutBtn" class="danger-btn">Log out</button>
+        </div>
+      </div>
+
+      <div id="brandNav" class="brand-nav"></div>
+
+      <div class="workspace-grid">
+        <div class="section-block">
+          <div class="section-header">
+            <div>
+              <h3>Asset pools</h3>
+              <p>Upload and organize outfit, location, and model options. Then drag them or assign them into a look board.</p>
+            </div>
+          </div>
+          <div id="poolSections"></div>
+          <div id="uploadPanel" class="upload-panel">
+            <h4>Add asset to pool</h4>
+            <div class="field">
+              <label for="assetBucket">Asset type</label>
+              <select id="assetBucket">
+                <option value="outfits">Outfit pool</option>
+                <option value="locations">Location pool</option>
+                <option value="models">Model pool</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="assetTitle">Display title</label>
+              <input id="assetTitle" type="text" placeholder="Ex: Rocawear men look 01">
+            </div>
+            <div class="field">
+              <label for="assetDescription">Creative note / description</label>
+              <textarea id="assetDescription" placeholder="What the client should know about this asset."></textarea>
+            </div>
+            <div class="field">
+              <label for="assetFile">Choose image</label>
+              <input id="assetFile" type="file" accept="image/*">
+            </div>
+            <button id="saveAssetBtn" class="primary-btn" type="button">Save asset</button>
+            <div id="uploadStatus" class="status"></div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="look-toolbar">
+            <div>
+              <h3 style="margin:0 0 6px; font-family:Georgia,serif; font-size:1.55rem; letter-spacing:-0.02em;">Look boards</h3>
+              <p style="margin:0;color:var(--muted);">Build Look 1, Look 2, Look 3 and beyond by pairing selected assets from the pools.</p>
+            </div>
+            <button id="addLookBtn" class="primary-btn" type="button">Add look</button>
+          </div>
+          <div id="lookGrid" class="look-grid"></div>
+          <div id="lookEmpty" class="empty-state" style="display:none;">No looks yet for this brand.</div>
+
+          <div class="planner-card">
+            <h4>Shared project notes</h4>
+            <textarea id="projectNotes" class="project-notes" placeholder="Capture overall client feedback, styling concerns, location constraints, cast notes, sequencing plans, and deliverable flags here."></textarea>
+          </div>
+
+          <div id="plannerExamples"></div>
+          <p class="footer-note">Client notes and uploaded assets are stored in localStorage in this browser. For real multi-user collaboration, this should be upgraded to a backend-backed app.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="previewModal" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h3 id="previewTitle">Preview</h3>
+          <p id="previewMeta" class="hint" style="margin:0;"></p>
+        </div>
+        <button id="closePreviewBtn" class="danger-btn" type="button">Close</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-image-wrap"><img id="previewImage" alt="Preview image"></div>
+        <p id="previewDescription" class="hint" style="margin:14px 0 0;"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="portal-config.js"></script>
+  <script src="portal.js"></script>
+</body>
+</html>

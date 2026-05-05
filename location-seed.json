@@ -1,0 +1,45 @@
+{
+  "ecko": [
+    {"title":"ecko_location_01","description":"Location preview imported from AIconix (Bushwick Vita).","fileName":"bushwickvita.jpg","filePath":"portal-assets/locations-preview/bushwickvita.jpg"},
+    {"title":"ecko_location_02","description":"Location preview imported from AIconix (Greenpoint).","fileName":"greenpoint.jpg","filePath":"portal-assets/locations-preview/greenpoint.jpg"},
+    {"title":"ecko_location_03","description":"Location preview imported from AIconix (Greenpoint 1).","fileName":"greenpoint_1.jpg","filePath":"portal-assets/locations-preview/greenpoint_1.jpg"},
+    {"title":"ecko_location_04","description":"Location preview imported from AIconix (Greenpoint 2).","fileName":"greenpoint_2.jpg","filePath":"portal-assets/locations-preview/greenpoint_2.jpg"},
+    {"title":"ecko_location_05","description":"Location preview imported from AIconix (Greenpoint 3).","fileName":"greenpoint_3.jpg","filePath":"portal-assets/locations-preview/greenpoint_3.jpg"},
+    {"title":"ecko_location_06","description":"Location preview imported from AIconix (Greenpoint 4).","fileName":"greenpoint_4.jpg","filePath":"portal-assets/locations-preview/greenpoint_4.jpg"},
+    {"title":"ecko_location_07","description":"Location preview imported from AIconix (Greenpoint 5).","fileName":"greenpoint_5jpg.jpg","filePath":"portal-assets/locations-preview/greenpoint_5jpg.jpg"},
+    {"title":"ecko_location_08","description":"Location preview imported from AIconix (Greenpoint 6).","fileName":"greenpoint_6.jpg","filePath":"portal-assets/locations-preview/greenpoint_6.jpg"},
+    {"title":"ecko_location_09","description":"Location preview imported from AIconix (Greenpoint 7).","fileName":"greenpoint_7.jpg","filePath":"portal-assets/locations-preview/greenpoint_7.jpg"}
+  ],
+  "eckored": [
+    {"title":"eckored_location_01","description":"Location preview imported from AIconix (Bushwick Vita 2).","fileName":"bushwickvita_2.jpg","filePath":"portal-assets/locations-preview/bushwickvita_2.jpg"},
+    {"title":"eckored_location_02","description":"Location preview imported from AIconix (Bushwick Vita 3).","fileName":"bushwickvita_3.jpg","filePath":"portal-assets/locations-preview/bushwickvita_3.jpg"},
+    {"title":"eckored_location_03","description":"Location preview imported from AIconix (Bushwick Vita 4).","fileName":"bushwickvita_4.jpg","filePath":"portal-assets/locations-preview/bushwickvita_4.jpg"},
+    {"title":"eckored_location_04","description":"Location preview imported from AIconix (Bushwick Vita 5).","fileName":"bushwickvita_5.jpg","filePath":"portal-assets/locations-preview/bushwickvita_5.jpg"},
+    {"title":"eckored_location_05","description":"Location preview imported from AIconix (Astoria).","fileName":"astoria.jpg","filePath":"portal-assets/locations-preview/astoria.jpg"},
+    {"title":"eckored_location_06","description":"Location preview imported from AIconix (Greenpoint 8).","fileName":"greenpoint_8.jpg","filePath":"portal-assets/locations-preview/greenpoint_8.jpg"}
+  ],
+  "rocawear": [
+    {"title":"rocawear_location_01","description":"Location preview imported from AIconix (Ridgewood Roof).","fileName":"ridgewoodroof.jpg","filePath":"portal-assets/locations-preview/ridgewoodroof.jpg"},
+    {"title":"rocawear_location_02","description":"Location preview imported from AIconix (Ridgewood Roof 2).","fileName":"ridgewoodroof_2.jpg","filePath":"portal-assets/locations-preview/ridgewoodroof_2.jpg"},
+    {"title":"rocawear_location_03","description":"Location preview imported from AIconix (Ridgewood Roof 3).","fileName":"ridgewoodroof_3.jpg","filePath":"portal-assets/locations-preview/ridgewoodroof_3.jpg"},
+    {"title":"rocawear_location_04","description":"Location preview imported from AIconix (Williamsburg).","fileName":"williamsburg.jpg","filePath":"portal-assets/locations-preview/williamsburg.jpg"},
+    {"title":"rocawear_location_05","description":"Location preview imported from AIconix (Williamsburg 3).","fileName":"williamsburg_3.jpg","filePath":"portal-assets/locations-preview/williamsburg_3.jpg"},
+    {"title":"rocawear_location_06","description":"Location preview imported from AIconix (Williamsburg 4).","fileName":"williamsburg_4.jpg","filePath":"portal-assets/locations-preview/williamsburg_4.jpg"},
+    {"title":"rocawear_location_07","description":"Location preview imported from AIconix (Williamsburg 5).","fileName":"williamsburg_5.jpg","filePath":"portal-assets/locations-preview/williamsburg_5.jpg"},
+    {"title":"rocawear_location_08","description":"Location preview imported from AIconix (Williamsburg 6).","fileName":"williamsburg_6.jpg","filePath":"portal-assets/locations-preview/williamsburg_6.jpg"}
+  ],
+  "materialgirl": [
+    {"title":"materialgirl_location_01","description":"Location preview imported from AIconix (Greenpoint 9).","fileName":"greenpoint_9.jpg","filePath":"portal-assets/locations-preview/greenpoint_9.jpg"},
+    {"title":"materialgirl_location_02","description":"Location preview imported from AIconix (Greenpoint 10).","fileName":"greenpoint_10.jpg","filePath":"portal-assets/locations-preview/greenpoint_10.jpg"},
+    {"title":"materialgirl_location_03","description":"Location preview imported from AIconix (Greenpoint End).","fileName":"greenpointend.jpg","filePath":"portal-assets/locations-preview/greenpointend.jpg"},
+    {"title":"materialgirl_location_04","description":"Location preview imported from AIconix (Bushwick Vita 6).","fileName":"bushwickvita_6.jpg","filePath":"portal-assets/locations-preview/bushwickvita_6.jpg"},
+    {"title":"materialgirl_location_05","description":"Location preview imported from AIconix (Bushwick Vita 7).","fileName":"bushwickvita_7.jpg","filePath":"portal-assets/locations-preview/bushwickvita_7.jpg"}
+  ],
+  "zooyork": [
+    {"title":"zooyork_location_01","description":"Location preview imported from AIconix (Bushwick Vita 8).","fileName":"bushwickvita_8.jpg","filePath":"portal-assets/locations-preview/bushwickvita_8.jpg"},
+    {"title":"zooyork_location_02","description":"Location preview imported from AIconix (Bushwick Vita 9).","fileName":"bushwickvita_9.jpg","filePath":"portal-assets/locations-preview/bushwickvita_9.jpg"},
+    {"title":"zooyork_location_03","description":"Location preview imported from AIconix (Bushwick Vita 10).","fileName":"bushwickvita_10.jpg","filePath":"portal-assets/locations-preview/bushwickvita_10.jpg"},
+    {"title":"zooyork_location_04","description":"Location preview imported from AIconix (Bushwick Vita 11).","fileName":"bushwickvita_11.jpg","filePath":"portal-assets/locations-preview/bushwickvita_11.jpg"},
+    {"title":"zooyork_location_05","description":"Location preview imported from AIconix (Bushwick Vita 12).","fileName":"bushwickvita_12.jpg","filePath":"portal-assets/locations-preview/bushwickvita_12.jpg"}
+  ]
+}

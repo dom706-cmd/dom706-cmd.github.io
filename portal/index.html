@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleandri Creative | Client Portal</title>
+    <meta name="description" content="Aleandri Creative client portal for brand planning across outfits, locations, and models.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="config.js"></script>
+    <script defer src="data.js"></script>
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <div class="portal-shell">
+        <header class="topbar">
+            <div class="brand-lockup">
+                <div class="brand-mark"></div>
+                <div>
+                    <h1>Aleandri Creative Portal</h1>
+                    <p>Private planning environment for client-facing project development.</p>
+                </div>
+            </div>
+            <div class="topbar-actions">
+                <span class="topbar-status" id="sessionLabel">Locked</span>
+                <a class="ghost-button" href="../index.html">Public Site</a>
+                <button class="ghost-button hidden" id="logoutButton" type="button">Exit Portal</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="login-screen active" id="loginScreen">
+                <div class="hero-panel">
+                    <div class="hero-content">
+                        <div class="eyebrow">Creative Project Access</div>
+                        <div class="hero-grid">
+                            <div class="hero-copy">
+                                <h2>Review campaign planning with the same taste level as the work itself.</h2>
+                                <p>Clients can review brand boards, comment on outfit, location, and model directions, and return to the same browser later. Admin mode unlocks local-browser upload controls and asset management for pitch refinement.</p>
+                                <p class="local-banner">This is a static-site prototype. Password checks, uploaded files, and comments stay in this browser only until a real backend is added.</p>
+                            </div>
+                            <aside class="login-panel">
+                                <div class="login-tabs" id="modeTabs"></div>
+                                <h2 id="loginTitle">Client Access</h2>
+                                <p class="panel-note" id="loginDescription">Enter the client password to review brand project boards.</p>
+                                <form id="loginForm">
+                                    <div class="field-group">
+                                        <label for="portalPassword">Password</label>
+                                        <input id="portalPassword" name="password" type="password" autocomplete="current-password" required>
+                                    </div>
+                                    <button class="button" type="submit">Enter Portal</button>
+                                    <div class="status-message" id="loginStatus" aria-live="polite"></div>
+                                </form>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="portal-app" id="portalApp">
+                <div class="local-banner">
+                    Local-browser persistence only: uploads and comments are stored in `localStorage` on this device and are not shared with other browsers or teammates.
+                </div>
+
+                <section class="overview-grid">
+                    <div class="brand-header" id="brandHeader"></div>
+                    <div class="dashboard-grid">
+                        <section>
+                            <div class="section-heading">
+                                <div>
+                                    <div class="bucket-label">Brand Selection</div>
+                                    <h2>Campaign Boards</h2>
+                                </div>
+                                <div class="brand-switcher" id="brandSwitcher"></div>
+                            </div>
+                            <div class="bucket-panel-header">
+                                <div>
+                                    <div class="bucket-label">Planning Buckets</div>
+                                    <p class="panel-note">Each project combines outfits, locations, and models in a single review flow.</p>
+                                </div>
+                                <div class="bucket-tabs" id="bucketTabs"></div>
+                            </div>
+                            <div class="asset-grid" id="assetGrid"></div>
+                        </section>
+
+                        <aside class="notes-panel">
+                            <div class="section-heading">
+                                <div>
+                                    <div class="bucket-label">Project Pulse</div>
+                                    <h2>Dashboard</h2>
+                                </div>
+                            </div>
+                            <div class="stats-grid" id="statsGrid"></div>
+                            <div class="roadmap-list" id="roadmapList"></div>
+                        </aside>
+                    </div>
+                </section>
+
+                <section class="admin-panel" id="adminPanel" hidden>
+                    <div class="admin-header">
+                        <div>
+                            <div class="bucket-label">Admin Workflow</div>
+                            <h2>Upload Local Asset</h2>
+                            <p class="panel-note">Use this to add browser-local image references into any brand bucket. These uploads are not synced anywhere.</p>
+                        </div>
+                        <div class="admin-meta">
+                            <div class="pill">Privileged session active</div>
+                            <div class="pill">Upgrade path: replace `localStorage` with API storage</div>
+                        </div>
+                    </div>
+                    <div class="admin-grid">
+                        <form class="admin-form" id="adminForm">
+                            <div class="field-group">
+                                <label for="adminBrand">Brand</label>
+                                <select id="adminBrand" name="brand" required></select>
+                            </div>
+                            <div class="field-group">
+                                <label for="adminBucket">Bucket</label>
+                                <select id="adminBucket" name="bucket" required>
+                                    <option value="outfits">Outfits</option>
+                                    <option value="locations">Locations</option>
+                                    <option value="models">Models</option>
+                                </select>
+                            </div>
+                            <div class="field-group">
+                                <label for="assetTitle">Asset Title</label>
+                                <input id="assetTitle" name="title" type="text" placeholder="Late-night rooftop hero look" required>
+                            </div>
+                            <div class="field-group">
+                                <label for="assetSummary">Summary</label>
+                                <textarea id="assetSummary" name="summary" placeholder="Notes for the team, styling cues, location relevance, casting intent." required></textarea>
+                            </div>
+                            <div class="field-group">
+                                <label for="assetFile">Local Image File</label>
+                                <input id="assetFile" name="file" type="file" accept="image/*" required>
+                                <div class="field-help">Stored as browser-local metadata and image data on this device.</div>
+                            </div>
+                            <button class="button" type="submit">Add Asset</button>
+                            <div class="status-message" id="adminStatus" aria-live="polite"></div>
+                        </form>
+                        <div class="notes-panel">
+                            <div class="bucket-label">Implementation Notes</div>
+                            <div class="roadmap-list">
+                                <div class="roadmap-item">Passwords currently live in `portal/config.js` for simple static gating.</div>
+                                <div class="roadmap-item">Asset uploads are converted to data URLs and saved in `localStorage`.</div>
+                                <div class="roadmap-item">Comments are scoped per asset, per browser, and persist between reloads on the same machine.</div>
+                                <div class="roadmap-item">For production, replace auth and persistence functions in `portal/app.js` with real API calls.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

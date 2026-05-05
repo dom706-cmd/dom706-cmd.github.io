@@ -1,0 +1,1753 @@
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleandri Creative | Premium Talent Agency & Production Studio</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Aleandri Creative: Elite talent agency representing models, photographers, videographers, stylists, and unique assets for advertising & film. Based near Pittsburgh, serving NYC & Columbus.">
+    <meta name="keywords" content="creative agency Pittsburgh, talent representation NYC, model agency Columbus, photography production, video production, modified cars for film">
+    <meta name="author" content="Dom Aleandri">
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Aleandri Creative",
+      "image": "https://aleandricreative.com/logo.jpg",
+      "@id": "https://aleandricreative.com",
+      "url": "https://aleandricreative.com",
+      "telephone": "+1-412-555-7890",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pittsburgh",
+        "addressRegion": "PA",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.440624,
+        "longitude": -79.995888
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Aleandri Creative | Where Elite Talent Meets Visionary Production">
+    <meta property="og:description" content="Representing exceptional creative talent and producing premium campaigns across Pittsburgh, NYC, and Columbus.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aleandricreative.com">
+    <meta property="og:image" content="https://aleandricreative.com/social-preview.jpg">
+    
+    <style>
+        /* ========== CSS RESET & VARIABLES ========== */
+        :root {
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --cream: #f8f5f0;
+            --gold: #c19a6b;
+            --dark-gold: #a87c4c;
+            --gray: #333333;
+            --light-gray: #777777;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--dark-gold);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--gold);
+            color: var(--white);
+        }
+        
+        /* ========== HEADER & NAVIGATION ========== */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--black);
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+        
+        #header.scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .desktop-nav {
+            display: block;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* ========== HERO SECTION ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8)),
+                        url('https://images.unsplash.com/photo-1483982258113-b72862e6cff6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') center/cover no-repeat;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+        
+        .location-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* ========== ABOUT SECTION ========== */
+        .about {
+            background-color: var(--cream);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-image img {
+            border-radius: 8px;
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .experience-item {
+            text-align: center;
+        }
+        
+        .exp-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+                .exp-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        .exp-text {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* ========== SERVICES SECTION ========== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* ========== TALENT SECTION ========== */
+        .talent {
+            background-color: var(--cream);
+        }
+        
+        .talent-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--gold);
+            color: var(--white);
+            border-color: var(--gold);
+        }
+        
+        .talent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .talent-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .talent-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .talent-img {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .talent-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .talent-card:hover .talent-img img {
+            transform: scale(1.05);
+        }
+        
+        .talent-info {
+            padding: 25px;
+        }
+        
+        .talent-category {
+            display: inline-block;
+            background-color: rgba(193, 154, 107, 0.1);
+            color: var(--gold);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* ========== PORTFOLIO PREVIEW MODAL ========== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 10, 10, 0.95);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            max-width: 1200px;
+            margin: 40px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.4s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            padding: 30px 40px 20px;
+            background-color: var(--black);
+            color: var(--white);
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .modal-close:hover {
+            color: var(--gold);
+            transform: rotate(90deg);
+        }
+        
+        .modal-category {
+            display: inline-block;
+            background-color: rgba(193, 154, 107, 0.2);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .modal-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .modal-description {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .modal-gallery {
+            padding: 40px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: var(--shadow);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .modal-footer {
+            padding: 30px 40px;
+            background-color: var(--cream);
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        /* ========== PORTFOLIO SECTION ========== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 300px;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        /* ========== CONTACT SECTION ========== */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(193, 154, 107, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            background-color: var(--white);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+        }
+        
+        /* ========== FOOTER ========== */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 80px 0 40px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-logo {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: var(--gold);
+        }
+        
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--light-gray);
+        }
+        
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .modal-content {
+                margin: 20px auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            .desktop-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--black);
+                z-index: 1001;
+                padding: 80px 30px;
+                transition: var(--transition);
+            }
+            
+            .desktop-nav.active {
+                right: 0;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-header {
+                padding: 25px;
+            }
+            
+            .modal-title {
+                font-size: 2rem;
+            }
+            
+            .modal-gallery {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .talent-grid,
+            .portfolio-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .talent-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .modal-header {
+                padding: 20px;
+            }
+            
+            .modal-title {
+                font-size: 1.8rem;
+            }
+            
+            .modal-gallery {
+                padding: 20px;
+            }
+        }
+        
+        /* ========== SIMPLE ICONS (NO FONT AWESOME NEEDED) ========== */
+        .icon-camera:before { content: "📷"; }
+        .icon-film:before { content: "🎬"; }
+        .icon-car:before { content: "🚗"; }
+        .icon-user:before { content: "👤"; }
+        .icon-email:before { content: "✉️"; }
+        .icon-phone:before { content: "📱"; }
+        .icon-location:before { content: "📍"; }
+        .icon-clock:before { content: "⏰"; }
+        .icon-instagram:before { content: "📸"; }
+        .icon-linkedin:before { content: "💼"; }
+        .icon-pinterest:before { content: "📌"; }
+        .icon-vimeo:before { content: "🎥"; }
+        .icon-bars:before { content: "☰"; }
+        .icon-times:before { content: "✕"; }
+        
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+            opacity: 1; /* ADDED TO FIX IMAGES */
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        
+        /* ========== FIX FOR IMAGE VISIBILITY ========== */
+        /* This fixes the images that weren't showing */
+        img {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        .talent-img img,
+        .service-img img,
+        .about-image img,
+        .portfolio-item img {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        
+        /* ========== LOADING STATE ========== */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--gold);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading">
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Portfolio Preview Modal -->
+    <div id="portfolioModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" id="closeModal">&times;</button>
+                <span class="modal-category" id="modalCategory">Model</span>
+                <h2 class="modal-title" id="modalTitle">Sarah Chen</h2>
+                <p class="modal-description" id="modalDescription">Fashion & commercial model represented in NYC and Pittsburgh markets. Specializes in high-fashion editorials and brand campaigns.</p>
+            </div>
+            
+            <div class="modal-gallery">
+                <h3>Portfolio Gallery</h3>
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Gallery images will be inserted here by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <p>Interested in working with this talent?</p>
+                <a href="#contact" class="btn" id="contactTalentBtn">Contact for Booking</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#home" class="logo">Aleandri<span>Creative</span></a>
+            
+            <button class="nav-toggle" id="navToggle">
+                <span class="icon-bars"></span>
+            </button>
+            
+            <nav class="desktop-nav" id="desktopNav">
+                <button class="nav-toggle" id="closeNav" style="position: absolute; top: 20px; right: 20px;">
+                    <span class="icon-times"></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#talent">Talent</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="portal.html">Client Portal</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Where Elite Talent Meets Visionary Production</h1>
+                <p class="delay-1">Aleandri Creative represents exceptional models, photographers, videographers, stylists, and unique assets for advertising, fashion, and film across Pittsburgh, NYC, and Columbus.</p>
+                
+                <div class="hero-buttons delay-2">
+                    <a href="#contact" class="btn">Start a Project</a>
+                    <a href="portal.html" class="btn">Client Portal</a>
+                    <a href="#talent" class="btn btn-outline">Access Our Roster</a>
+                </div>
+                
+                <div class="location-badges delay-3">
+                    <div class="badge">Pittsburgh</div>
+                    <div class="badge">New York City</div>
+                    <div class="badge">Columbus</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Dom's Vision</h2>
+                    <p>With 22 years in creative direction, I've dedicated my career to elevating visual storytelling. After shooting high-budget campaigns in London and serving as Senior Creative Manager for Amazon Fashion Studios and Amazon Visual Innovations, I founded Aleandri Creative to bridge the gap between exceptional talent and visionary brands.</p>
+                    <p>Based outside Pittsburgh and serving NYC and Columbus, we're not just an agency—we're a creative nexus where talent meets opportunity, and concepts become compelling visual narratives.</p>
+                    
+                    <div class="experience-grid">
+                        <div class="experience-item">
+                            <span class="exp-number">22</span>
+                            <span class="exp-text">Years Experience</span>
+                        </div>
+                        <div class="experience-item">
+                            <span class="exp-number">100+</span>
+                            <span class="exp-text">Campaigns</span>
+                        </div>
+                        <div class="experience-item">
+                            <span class="exp-number">3</span>
+                            <span class="exp-text">Cities Served</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="images/dom-aleandri.jpg" alt="Dom Aleandri - Creative Director">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services section-padding" id="services">
+        <div class="container">
+            <div class="text-center">
+                <h2>Our Services</h2>
+                <p>Comprehensive creative solutions for brands and talent</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Model Representation">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon icon-user"></div>
+                        <h3>Talent Representation</h3>
+                        <p>We represent elite models, photographers, videographers, stylists, art directors, and digital editors. Our talent is carefully curated for professionalism and unique style.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Production Services">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon icon-film"></div>
+                        <h3>Production Services</h3>
+                        <p>Full-service photo and video production for advertising campaigns, lookbooks, and brand content. From concept development to final delivery.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Modified Cars for Film">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon icon-car"></div>
+                        <h3>Unique Assets</h3>
+                        <p>Exclusive representation of highly modified cars and unique vehicles for film, advertising, and photo shoots. Each asset is curated for visual impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Talent Section -->
+    <section class="talent section-padding" id="talent">
+        <div class="container">
+            <div class="text-center">
+                <h2>Our Talent Roster</h2>
+                <p>Discover exceptional creatives available for your next project</p>
+            </div>
+            
+            <div class="talent-filters">
+                <button class="filter-btn active" data-filter="all">All Talent</button>
+                <button class="filter-btn" data-filter="model">Models</button>
+                <button class="filter-btn" data-filter="photographer">Photographers</button>
+                <button class="filter-btn" data-filter="videographer">Videographers</button>
+                <button class="filter-btn" data-filter="creative">Creative Directors</button>
+                <button class="filter-btn" data-filter="stylist">Stylists</button>
+                <button class="filter-btn" data-filter="cars">Modified Cars</button>
+            </div>
+            
+            <div class="talent-grid">
+                <!-- Talent 1 -->
+                <div class="talent-card" data-category="model" data-name="Sarah Chen" data-description="Fashion & commercial model represented in NYC and Pittsburgh markets. Specializes in high-fashion editorials and brand campaigns. Available for runway, print, and digital campaigns.">
+                    <div class="talent-img">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Model Sarah">
+                    </div>
+                    <div class="talent-info">
+                        <span class="talent-category">Model</span>
+                        <h3>Sarah Chen</h3>
+                        <p>Fashion & commercial model represented in NYC and Pittsburgh markets. Specializes in high-fashion editorials and brand campaigns.</p>
+                    </div>
+                </div>
+                
+                <!-- Talent 2 -->
+                <div class="talent-card" data-category="photographer" data-name="Marcus Rivera" data-description="Award-winning fashion and advertising photographer with 15 years experience. Based in Columbus, available for travel. Specializes in luxury brand campaigns and editorial photography.">
+                    <div class="talent-img">
+                        <img src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1158&q=80" alt="Photographer Marcus">
+                    </div>
+                    <div class="talent-info">
+                        <span class="talent-category">Photographer</span>
+                        <h3>Marcus Rivera</h3>
+                        <p>Award-winning fashion and advertising photographer with 15 years experience. Based in Columbus, available for travel.</p>
+                    </div>
+                </div>
+                
+                <!-- Talent 3 -->
+                <div class="talent-card" data-category="videographer" data-name="Elena Rodriguez" data-description="Cinematic storyteller specializing in fashion films and brand documentaries. Previously worked with major luxury brands. Expertise in 4K production and post-production.">
+                    <div class="talent-img">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Videographer Elena">
+                    </div>
+                    <div class="talent-info">
+                        <span class="talent-category">Videographer</span>
+                        <h3>Elena Rodriguez</h3>
+                        <p>Cinematic storyteller specializing in fashion films and brand documentaries. Previously worked with major luxury brands.</p>
+                    </div>
+                </div>
+                
+                <!-- Talent 4 -->
+                <div class="talent-card" data-category="creative" data-name="James Wilson" data-description="Conceptual creative director with background in luxury fashion advertising. Expert at transforming brand vision into compelling visual narratives. 12 years agency experience.">
+                    <div class="talent-img">
+                        <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1727&q=80" alt="Creative Director James">
+                    </div>
+                    <div class="talent-info">
+                        <span class="talent-category">Creative Director</span>
+                        <h3>James Wilson</h3>
+                        <p>Conceptual creative director with background in luxury fashion advertising. Expert at transforming brand vision into compelling visual narratives.</p>
+                    </div>
+                </div>
+                
+                <!-- Talent 5 -->
+                <div class="talent-card" data-category="cars" data-name="1970 Porsche 911 Restomod" data-description="Fully restored and modified classic Porsche. Available for film, advertising, and editorial shoots. Based in Pittsburgh, transport available. Features custom paint and interior.">
+                    <div class="talent-img">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Modified Car">
+                    </div>
+                    <div class="talent-info">
+                        <span class="talent-category">Modified Car</span>
+                        <h3>1970 Porsche 911 Restomod</h3>
+                        <p>Fully restored and modified classic Porsche. Available for film, advertising, and editorial shoots. Based in Pittsburgh, transport available.</p>
+                    </div>
+                </div>
+                
+                <!-- Talent 6 -->
+                <div class="talent-card" data-category="model" data-name="Alex Morgan" data-description="Commercial and lifestyle model specializing in athletic and outdoor brands. Available in all three markets with flexible scheduling. Experienced in TV commercials and digital campaigns.">
+                    <div class="talent-img">
+                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Model Alex">
+                    </div>
+                    <div class="talent-info">
+                        <span class="talent-category">Model</span>
+                        <h3>Alex Morgan</h3>
+                        <p>Commercial and lifestyle model specializing in athletic and outdoor brands. Available in all three markets with flexible scheduling.</p>
+                    </div>
+                </div>
+
+                <!-- Talent 7 - New -->
+                <div class="talent-card" data-category="photographer" data-name="Maya Johnson" data-description="Beauty and portrait specialist with a unique eye for lighting. Her work has been featured in Vogue and Harper's Bazaar. Specializes in natural light photography and studio setups.">
+                    <div class="talent-img">
+                        <img src="https://images.unsplash.com/photo-1553272725-086100aecf5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Photographer Maya">
+                    </div>
+                    <div class="talent-info">
+                        <span class="talent-category">Photographer</span>
+                        <h3>Maya Johnson</h3>
+                        <p>Beauty and portrait specialist with a unique eye for lighting. Her work has been featured in Vogue and Harper's Bazaar.</p>
+                    </div>
+                </div>
+
+                <!-- Talent 8 - New -->
+                <div class="talent-card" data-category="stylist" data-name="Sophia Williams" data-description="Fashion stylist with 10+ years experience in editorial and commercial styling. Works across all three markets. Expertise in contemporary fashion, luxury brands, and costume design.">
+                    <div class="talent-img">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Stylist Sophia">
+                    </div>
+                    <div class="talent-info">
+                        <span class="talent-category">Stylist</span>
+                        <h3>Sophia Williams</h3>
+                        <p>Fashion stylist with 10+ years experience in editorial and commercial styling. Works across all three markets.</p>
+                    </div>
+                </div>
+
+                <!-- Talent 9 - New -->
+                <div class="talent-card" data-category="videographer" data-name="David Park" data-description="Documentary-style videographer specializing in brand stories. Former BBC cinematographer with 12 years experience. Expert in drone cinematography and motion graphics.">
+                    <div class="talent-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Videographer David">
+                    </div>
+                    <div class="talent-info">
+                        <span class="talent-category">Videographer</span>
+                        <h3>David Park</h3>
+                        <p>Documentary-style videographer specializing in brand stories. Former BBC cinematographer with 12 years experience.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="#contact" class="btn">Apply for Representation</a>
+            </div>
+        </div>
+    </section>
+        <!-- Portfolio Section -->
+    <section class="portfolio section-padding" id="portfolio">
+        <div class="container">
+            <div class="text-center">
+                <h2>Our Portfolio</h2>
+                <p>Selected campaigns and projects from our talent and production teams</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Fashion Campaign">
+                    <div class="portfolio-overlay">
+                        <h3>Luxury Fashion Campaign</h3>
+                        <p>New York City • Fall Collection</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1561212024-cb9ad0c2d61e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Automotive Shoot">
+                    <div class="portfolio-overlay">
+                        <h3>Automotive Editorial</h3>
+                        <p>Pittsburgh • Modified Cars Feature</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=720&q=80" alt="Beauty Campaign">
+                    <div class="portfolio-overlay">
+                        <h3>Beauty Brand Launch</h3>
+                        <p>Columbus • Product Campaign</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact section-padding" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2>Connect With Us</h2>
+                <p>Ready to start a project or join our talent roster?</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon icon-location"></div>
+                        <div>
+                            <h4>Our Base</h4>
+                            <p>Based outside Pittsburgh<br>Serving NYC & Columbus</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon icon-email"></div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>dom@aleandricreative.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon icon-phone"></div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>(412) 555-7890</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon icon-clock"></div>
+                        <div>
+                            <h4>Response Time</h4>
+                            <p>We respond within 24 hours</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <select class="form-select" id="inquiryType" required>
+                                <option value="" disabled selected>Select inquiry type</option>
+                                <option value="client">I'm a client with a project</option>
+                                <option value="talent">I'm talent seeking representation</option>
+                                <option value="car-owner">I have a modified car for representation</option>
+                                <option value="general">General inquiry</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="location" placeholder="Your Location (City)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" placeholder="Tell us about your project or experience..." rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="portfolio" style="display: block; margin-bottom: 10px; font-weight: 500;">Portfolio/Website (if applicable)</label>
+                            <input type="url" class="form-control" id="portfolioLink" placeholder="https://">
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%; padding: 18px;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">Aleandri<span>Creative</span></div>
+                    <p>Connecting exceptional creative talent with visionary brands across Pittsburgh, New York City, and Columbus.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><span class="icon-instagram"></span></a>
+                        <a href="#" aria-label="LinkedIn"><span class="icon-linkedin"></span></a>
+                        <a href="#" aria-label="Pinterest"><span class="icon-pinterest"></span></a>
+                        <a href="#" aria-label="Vimeo"><span class="icon-vimeo"></span></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Dom</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#talent">Talent Roster</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Model Representation</a></li>
+                        <li><a href="#services">Photographer Representation</a></li>
+                        <li><a href="#services">Video Production</a></li>
+                        <li><a href="#services">Creative Direction</a></li>
+                        <li><a href="#services">Modified Cars for Film</a></li>
+                        <li><a href="#services">Advertising Campaigns</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Locations</h3>
+                    <ul>
+                        <li><a href="#contact">Pittsburgh Area</a></li>
+                        <li><a href="#contact">New York City</a></li>
+                        <li><a href="#contact">Columbus, Ohio</a></li>
+                        <li><a href="#contact">Available for Travel</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Aleandri Creative. All rights reserved. | No WordPress, No Subscriptions</p>
+            </div>
+        </div>
+    </footer>
+        <!-- JavaScript -->
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Remove loading screen
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            loading.style.opacity = '0';
+            setTimeout(() => {
+                loading.style.display = 'none';
+            }, 500);
+            
+            // Force images to be visible
+            setTimeout(() => {
+                const images = document.querySelectorAll('img');
+                images.forEach(img => {
+                    img.style.opacity = '1';
+                    img.style.visibility = 'visible';
+                });
+            }, 100);
+        });
+        
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const closeNav = document.getElementById('closeNav');
+        const desktopNav = document.getElementById('desktopNav');
+        
+        navToggle.addEventListener('click', () => {
+            desktopNav.classList.add('active');
+        });
+        
+        closeNav.addEventListener('click', () => {
+            desktopNav.classList.remove('active');
+        });
+        
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (event) => {
+            const isClickInsideNav = desktopNav.contains(event.target);
+            const isClickOnToggle = navToggle.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickOnToggle && desktopNav.classList.contains('active')) {
+                desktopNav.classList.remove('active');
+            }
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Talent filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const talentCards = document.querySelectorAll('.talent-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                talentCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // PORTFOLIO MODAL FUNCTIONALITY
+        const modal = document.getElementById('portfolioModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalDescription = document.getElementById('modalDescription');
+        const galleryGrid = document.getElementById('galleryGrid');
+        const contactTalentBtn = document.getElementById('contactTalentBtn');
+        
+        // Sample portfolio images for each talent
+        const talentPortfolios = {
+            'Sarah Chen': [
+                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            'Marcus Rivera': [
+                'https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1551232865-7734b9b6c0c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1544716278-e513176f20b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            'Elena Rodriguez': [
+                'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            'James Wilson': [
+                'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            '1970 Porsche 911 Restomod': [
+                'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1561212024-cb9ad0c2d61e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1504215680853-026ed2a45def?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            'Alex Morgan': [
+                'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1511407397940-d57f68e81203?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            'Maya Johnson': [
+                'https://images.unsplash.com/photo-1553272725-086100aecf5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            'Sophia Williams': [
+                'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            'David Park': [
+                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ]
+        };
+        
+        // Open modal when talent card is clicked
+        talentCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const talentName = card.getAttribute('data-name');
+                const talentCategory = card.getAttribute('data-category');
+                const talentDescription = card.getAttribute('data-description');
+                
+                // Set modal content
+                modalTitle.textContent = talentName;
+                modalCategory.textContent = talentCategory.charAt(0).toUpperCase() + talentCategory.slice(1);
+                modalDescription.textContent = talentDescription;
+                
+                // Update contact button
+                contactTalentBtn.textContent = `Contact ${talentName.split(' ')[0]}`;
+                
+                // Clear previous gallery
+                galleryGrid.innerHTML = '';
+                
+                // Get portfolio images for this talent
+                const portfolioImages = talentPortfolios[talentName] || talentPortfolios['Sarah Chen']; // Fallback
+                
+                // Add 5 images to gallery
+                portfolioImages.forEach((imageUrl, index) => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.innerHTML = `<img src="${imageUrl}" alt="${talentName} - Portfolio Image ${index + 1}">`;
+                    galleryGrid.appendChild(galleryItem);
+                });
+                
+                // Show modal
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+        
+        // Close modal when X is clicked
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                type: document.getElementById('inquiryType').value,
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                location: document.getElementById('location').value,
+                message: document.getElementById('message').value,
+                portfolio: document.getElementById('portfolioLink').value
+            };
+            
+            // In production, you would send this to a server
+            // For now, we'll show a success message
+            alert(`Thank you, ${formData.name}! Your ${formData.type === 'client' ? 'project inquiry' : 'representation request'} has been received. We'll contact you at ${formData.email} within 24 hours.`);
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Optional: Send to email using Formspree or similar (free)
+            console.log('Form submitted:', formData);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if(targetElement) {
+                    // Close mobile nav if open
+                    desktopNav.classList.remove('active');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // REMOVED: The problematic IntersectionObserver code that was breaking images
+        // Images are now visible by default with CSS fixes
+        
+        // Additional fix for any remaining image visibility issues
+        setTimeout(() => {
+            document.querySelectorAll('img').forEach(img => {
+                if (img.complete && img.naturalHeight === 0) {
+                    // Image failed to load, try reloading
+                    const src = img.src;
+                    img.src = '';
+                    img.src = src;
+                }
+            });
+        }, 1000);
+    </script>
+</body>
+</html>
